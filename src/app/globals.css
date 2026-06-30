@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --font-sans: 'Inter', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --primary: #16a34a;
+  --primary-hover: #15803d;
+  --secondary: #64748b;
+  --accent: #f0fdf4;
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --card-hover: #f8fafc;
+}
+
+.dark {
+  --background: #0b1121;
+  --foreground: #e2e8f0;
+  --primary: #4ade80;
+  --primary-hover: #22c55e;
+  --secondary: #94a3b8;
+  --accent: #0f1a30;
+  --border: #1e2d4a;
+  --card: #0f1a30;
+  --card-hover: #172544;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) transparent;
+}
+
+@utility btn-primary {
+  @apply bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+@utility btn-secondary {
+  @apply bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-6 py-2.5 rounded-lg font-medium transition-all duration-200;
+}
+
+@utility btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-200;
+}
+
+@utility btn-outline {
+  @apply border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-200;
+}
+
+@utility input-field {
+  @apply w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200;
+}
+
+@utility card {
+  @apply bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-6;
+}
+
+@utility card-hover {
+  @apply hover:shadow-md hover:border-green-300 dark:hover:border-green-600 transition-all duration-200;
+}
+
+@utility badge {
+  @apply px-3 py-1 rounded-full text-sm font-medium;
+}
+
+@utility badge-primary {
+  @apply bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-300;
+}
+
+@utility badge-green {
+  @apply bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300;
+}
+
+@utility badge-yellow {
+  @apply bg-yellow-100 text-yellow-700 dark:bg-yellow-900/50 dark:text-yellow-300;
+}
+
+@utility badge-red {
+  @apply bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-300;
+}
+
+@utility badge-purple {
+  @apply bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300;
+}
+
+@utility sidebar-link {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-green-50 dark:hover:bg-green-900/20 hover:text-green-600 dark:hover:text-green-400 transition-all duration-200;
+}
+
+@utility sidebar-link-active {
+  @apply bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 font-medium;
 }
