@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { applicationsAPI } from '@/lib/api';
+import { applicationsAPI, BASE_URL } from '@/lib/api';
 import { useAuth } from '@/context/AuthContext';
 import { FiFileText, FiCheckCircle, FiClock, FiXCircle, FiStar, FiUserCheck, FiSend, FiUser, FiMapPin, FiDownload, FiPhone, FiCalendar } from 'react-icons/fi';
 
@@ -94,12 +94,12 @@ export default function Applications() {
                     {(app.cv || app.educationDoc) && (
                       <div className="flex flex-wrap gap-2 mb-2">
                         {app.cv && (
-                          <a href={`http://localhost:5000${app.cv}`} target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1">
+                          <a href={`${BASE_URL}${app.cv}`} target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1">
                             <FiDownload /> View CV
                           </a>
                         )}
                         {app.educationDoc && (
-                          <a href={`http://localhost:5000${app.educationDoc}`} target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1">
+                          <a href={`${BASE_URL}${app.educationDoc}`} target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1">
                             <FiDownload /> View Education Document
                           </a>
                         )}

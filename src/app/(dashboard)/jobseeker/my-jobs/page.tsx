@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { jobsAPI, applicationsAPI } from '@/lib/api';
+import { jobsAPI, applicationsAPI, BASE_URL } from '@/lib/api';
 import { FiBriefcase, FiEye, FiUsers, FiEdit2, FiTrash2, FiPlus, FiChevronDown, FiChevronUp, FiFileText, FiCheckCircle, FiXCircle, FiStar, FiDownload, FiUser, FiMapPin, FiCalendar, FiPhone } from 'react-icons/fi';
 
 export default function MyJobPosts() {
@@ -124,12 +124,12 @@ export default function MyJobPosts() {
                               {(app.cv || app.educationDoc) && (
                                 <div className="flex flex-wrap gap-2 mb-3">
                                   {app.cv && (
-                                    <a href={`http://localhost:5000${app.cv}`} target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1">
+                                    <a href={`${BASE_URL}${app.cv}`} target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1">
                                       <FiDownload /> View CV
                                     </a>
                                   )}
                                   {app.educationDoc && (
-                                    <a href={`http://localhost:5000${app.educationDoc}`} target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1">
+                                    <a href={`${BASE_URL}${app.educationDoc}`} target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1">
                                       <FiDownload /> View Education Document
                                     </a>
                                   )}
