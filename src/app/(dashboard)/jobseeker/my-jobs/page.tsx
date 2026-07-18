@@ -72,7 +72,7 @@ export default function MyJobPosts() {
                     <h3 className="font-semibold">{job.title}</h3>
                     {statusBadge(job.status)}
                   </div>
-                  <p className="text-sm text-slate-500 mb-2">{job.companyName} · {job.location} · {job.employmentType}</p>
+                  <p className="text-sm text-slate-500 mb-2">{job.companyName} · {job.location} · {job.employmentType}{job.category?.name && <span> · {job.category.name}</span>}</p>
                   <div className="flex items-center gap-4 text-sm text-slate-400">
                     <span className="flex items-center gap-1"><FiEye /> {job.views} views</span>
                     <span className="flex items-center gap-1"><FiUsers /> {job.applicationsCount} applicants</span>
